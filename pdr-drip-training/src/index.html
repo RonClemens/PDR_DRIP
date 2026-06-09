@@ -890,6 +890,90 @@
     margin-left: auto;
   }
   .section-done-badge.show { display: flex; }
+
+  /* API KEY MODAL */
+  .key-btn {
+    margin-left: 16px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.08em;
+  }
+  .key-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .key-btn.active { border-color: var(--green); color: var(--green); }
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 500;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-overlay[hidden] { display: none; }
+  .modal-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 420px;
+    max-width: 95vw;
+  }
+  .modal-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .modal-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .modal-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+  }
+  .modal-input {
+    width: 100%;
+    background: rgba(0,212,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--white);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    padding: 9px 12px;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .modal-input:focus { border-color: var(--accent); }
+  .modal-status {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    min-height: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+  .modal-status.ok { color: var(--green); }
+  .modal-status.err { color: var(--accent2); }
+  .modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
 </style>
 </head>
 <body>
@@ -1686,7 +1770,10 @@
             <div class="ai-chat-name">DRIP Advisor</div>
             <div class="ai-chat-status">● Online · DI-SESS-81757A Expert</div>
           </div>
-          <div class="ai-model-badge">claude-sonnet-4-20250514</div>
+                    <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+            <button class="key-btn" id="keyBtn" title="Configure API Key">🔑 API Key</button>
+            <div class="ai-model-badge" id="modelBadge">bedrock-claude-sonnet-4-6</div>
+          </div>
         </div>
 
         <div class="ai-messages" id="main-messages">
@@ -1718,6 +1805,23 @@
   </main>
 </div>
 
+<!-- API KEY MODAL -->
+<div class="modal-overlay" id="keyModal" hidden>
+  <div class="modal-box">
+    <div class="modal-title">🔑 Configure API Key</div>
+    <div class="modal-desc">Set your Tennex API key and endpoint. Saved to the server <code style="color:var(--accent)">.env</code> file and applied immediately.</div>
+    <div class="modal-status" id="keyStatus"></div>
+    <label class="modal-label">API Key</label>
+    <input type="password" id="keyInput" class="modal-input" placeholder="Paste your API key here…" />
+    <label class="modal-label">API Base URL</label>
+    <input type="text" id="baseUrlInput" class="modal-input" placeholder="https://ai-api.sif.saicdevops.com/v1/" />
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="modalCancel" style="padding:8px 18px;font-size:12px">Cancel</button>
+      <button class="btn btn-primary" id="modalSave" style="padding:8px 18px;font-size:12px">Save Key</button>
+    </div>
+  </div>
+</div>
+
 <!-- Floating AI button (shows when NOT on ai-assistant section) -->
 <button id="ai-fab" onclick="togglePopup()" title="Ask the DRIP Advisor">
   🛡
@@ -1732,6 +1836,7 @@
       <div class="ai-chat-name" style="font-size:13px;">DRIP Advisor</div>
       <div class="ai-chat-status">● DI-SESS-81757A Expert</div>
     </div>
+        <button class="key-btn" id="keyBtnPopup" title="Configure API Key" style="margin-left:auto;font-size:10px;padding:4px 10px;">🔑 Key</button>
     <button class="popup-close" onclick="togglePopup()">✕</button>
   </div>
 
@@ -1872,25 +1977,6 @@
   // AI ASSISTANT
   // ================================================================
 
-  const SYSTEM_PROMPT = `You are DRIP Advisor, an expert AI assistant embedded inside a U.S. Government customer training module focused on DI-SESS-81757A (Design Review Information Package) and the Preliminary Design Review (PDR) process.
-
-Your knowledge base includes:
-- DI-SESS-81757A: Data Item Description for the Design Review Information Package (DRIP), April 6, 2010. The DRIP is used by the Government to determine and ensure that the emerging system has demonstrated sufficient maturity to enter the next phase of development.
-- PDR DRIP Section Requirements: system performance specification status; preliminary hardware & software design; interface requirements & ICDs; software architecture & CSCI/CSC/CSU identification; trade study results; risk assessment & mitigation; R&M analysis & FMECA; manufacturing & producibility assessment; logistics & sustainment (LCSP); schedule & IMS; CARD update.
-- Allocated Baseline: PDR's primary technical output. Complete when all system-level requirements are decomposed to CI level, all internal/external interfaces documented in ICDs, verification requirements documented for all allocated performance characteristics, and design constraints captured. Placed under formal configuration management at PDR exit. Changes after PDR require an ECP and CCB action.
-- PDR Entry Criteria: prior action items closed, SEP criteria documented, validated CDD in place, SMEs identified, DRIP package received ≥30 days prior.
-- PDR Exit Criteria: allocated baseline established and under CM, technical data complete, risks acceptable, feasibility/cost/schedule within margins, IMS updated with CDR path, CARD updated.
-- PDR Success Confirmation: satisfies CDD requirements; affordable/producible/sustainable; uses demonstrated technologies; complete and ready for detailed design; provides Milestone B technical basis; captured in all specifications and ICDs.
-- CDRL / DD Form 1423: The DRIP is ordered contractually via DD Form 1423 referencing DI-SESS-81757A. Related CDRLs include: SEMP (DI-SESS-81659B), IMS (DI-MGMT-81650), Risk Management Plan (DI-SESS-81651), Software Development Plan (DI-IPSC-81441A), SRS per CSCI (DI-IPSC-81433B), SEP (DI-SESS-81758A), ICDs (DI-SESS-80255), LCSP (DI-SESS-81535), TEMP (DI-SESS-81519).
-- Roles: Government PM (approves/funds PDR, controls baselines, convenes CCBs); Government Lead SE (develops PDR plan with quantifiable criteria, verifies entry criteria met, updates risk plans, documents plan to CDR); Chief Developmental Tester (participates in PDR, verifies TEMP and test resources); DASD(SE) for ACAT ID / CAE for ACAT IC (conducts independent PDR assessment for MDA).
-- Statutory Reference: 10 U.S.C. § 2366b requires MDA certification at Milestone B for MDAPs; certification requires PDR conduct and assessment.
-- DAG Reference: DAG CH 3-3.3.4 Preliminary Design Review; DAG CH 8-3.8.2 T&E considerations at PDR; DAG CH 4 Sustainment at PDR.
-- IEEE 15288.2: Standard for Technical Reviews and Audits on Defense Programs (resource for PDR preparation).
-
-You are speaking to Government customer representatives (PMs, Systems Engineers, Contract Officers, T&E leads). Your role is to help them understand their obligations, evaluate the contractor's DRIP, and exercise their gatekeeping authority effectively.
-
-Respond in a clear, authoritative but approachable tone. Use concise paragraphs. When relevant, reference the specific DID, DAG chapter, statute, or CDRL. Format key terms in bold. Keep responses focused and actionable. Do not exceed 400 words unless the question genuinely requires more depth. Never fabricate regulatory citations.`;
-
   // Per-chat conversation history
   const chatHistory = { main: [], popup: [] };
 
@@ -1952,22 +2038,54 @@ Respond in a clear, authoritative but approachable tone. Use concise paragraphs.
   }
 
   function formatAIResponse(text) {
-    // Convert markdown-ish to HTML
-    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    // Bullet lists
-    text = text.replace(/^[-•]\s(.+)$/gm, '<li>$1</li>');
-    text = text.replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`);
-    // Newlines to breaks (after list handling)
-    text = text.replace(/\n\n/g, '</p><p>');
-    text = text.replace(/\n/g, '<br>');
-    text = `<p>${text}</p>`;
-    // Clean up empty paragraphs
-    text = text.replace(/<p><\/p>/g, '');
-    text = text.replace(/<p>(<ul>)/g, '$1');
-    text = text.replace(/<\/ul>(<\/p>)/g, '</ul>');
-    return text;
-  }
+      let h = text
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      // fenced code blocks
+      h = h.replace(/```([\s\S]*?)```/gm,
+        "<pre style='background:#080e1c;padding:10px 14px;border-radius:6px;margin:6px 0;font-size:0.8rem;overflow-x:auto;white-space:pre-wrap;border:1px solid var(--border)'><code>$1</code></pre>");
+      // markdown tables
+      h = h.replace(/((?:\|.+\|\n?)+)/gm, match => {
+        const rows = match.trim().split(/\n/);
+        let out = "<table style='border-collapse:collapse;width:100%;margin:8px 0;font-size:0.82rem'>";
+        rows.forEach((row, i) => {
+          if (/^\|[-| :]+\|$/.test(row.trim())) return;
+          const tag = i === 0 ? 'th' : 'td';
+          const cells = row.split('|').slice(1,-1);
+          out += '<tr>' + cells.map(c => `<${tag} style='padding:5px 10px;border:1px solid var(--border);text-align:left'>${c.trim()}</${tag}>`).join('') + '</tr>';
+        });
+        return out + '</table>';
+      });
+      // horizontal rules
+      h = h.replace(/^---+$/gm, "<hr style='border:none;border-top:1px solid var(--border);margin:6px 0'>");
+      // headings
+      h = h.replace(/^### (.+)$/gm, "<h4 style='color:var(--accent);margin:6px 0 2px;font-size:0.87rem;font-weight:700'>$1</h4>");
+      h = h.replace(/^## (.+)$/gm,  "<h3 style='color:var(--accent);margin:6px 0 2px;font-size:0.92rem;font-weight:700'>$1</h3>");
+      h = h.replace(/^# (.+)$/gm,   "<h2 style='color:var(--accent);margin:8px 0 2px;font-size:1rem;font-weight:800'>$1</h2>");
+      // bold / italic
+      h = h.replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--white)">$1</strong>');
+      h = h.replace(/\*(.+?)\*/g, '<em style="color:var(--accent)">$1</em>');
+      // blockquote
+      h = h.replace(/^&gt; (.+)$/gm,
+        "<blockquote style='border-left:3px solid var(--accent);margin:4px 0;padding:3px 12px;color:var(--muted);font-style:italic'>$1</blockquote>");
+      // unordered lists
+      h = h.replace(/((?:^[*\-] .+$\n?)+)/gm, match => {
+        const items = match.trim().split(/\n/).map(l => '<li>' + l.replace(/^[*\-] /, '') + '</li>');
+        return "<ul style='padding-left:18px;margin:5px 0'>" + items.join('') + '</ul>';
+      });
+      // ordered lists
+      h = h.replace(/((?:^\d+\. .+$\n?)+)/gm, match => {
+        const items = match.trim().split(/\n/).map(l => '<li>' + l.replace(/^\d+\. /, '') + '</li>');
+        return "<ol style='padding-left:18px;margin:5px 0'>" + items.join('') + '</ol>';
+      });
+      // inline code
+      h = h.replace(/`([^`]+)`/g,
+        "<code style='background:#080e1c;padding:1px 6px;border-radius:3px;font-size:0.83em;color:var(--accent)'>$1</code>");
+      // line breaks
+      h = h.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+      return h;
+    }
+
+  
 
   async function sendMessage(chatId) {
     const input = document.getElementById(chatId + '-input');
@@ -1988,28 +2106,23 @@ Respond in a clear, authoritative but approachable tone. Use concise paragraphs.
     const typing = addTypingIndicator(chatId);
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+            const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: chatHistory[chatId]
+          message: text,
+          history: chatHistory[chatId].slice(-10)
         })
       });
 
       const data = await response.json();
       removeTypingIndicator(chatId);
 
-      if (data.content && data.content[0] && data.content[0].text) {
-        const rawText = data.content[0].text;
-        chatHistory[chatId].push({ role: 'assistant', content: rawText });
-        addMessage(chatId, 'ai', formatAIResponse(rawText));
-      } else if (data.error) {
-        addMessage(chatId, 'ai', `<strong style="color:var(--accent2)">Error:</strong> ${data.error.message || 'Unable to get a response. Please try again.'}`);
+      if (response.ok && data.answer) {
+        chatHistory[chatId].push({ role: 'assistant', content: data.answer });
+        addMessage(chatId, 'ai', formatAIResponse(data.answer));
       } else {
-        addMessage(chatId, 'ai', 'I encountered an unexpected response format. Please try again.');
+        addMessage(chatId, 'ai', `<strong style="color:var(--accent2)">Error:</strong> ${data.error || 'Unable to get a response. Please try again.'}`);
       }
     } catch (err) {
       removeTypingIndicator(chatId);
@@ -2057,6 +2170,79 @@ Respond in a clear, authoritative but approachable tone. Use concise paragraphs.
     popupOpen = false;
     document.getElementById('ai-popup').classList.remove('open');
   }
+
+    // ---- API Key Modal ----
+  const keyBtn     = document.getElementById('keyBtn');
+  const keyBtnPopup = document.getElementById('keyBtnPopup');
+  if (keyBtnPopup) keyBtnPopup.addEventListener('click', () => keyBtn.click());
+  const keyModal   = document.getElementById('keyModal');
+  const keyInput   = document.getElementById('keyInput');
+  const baseUrlInp = document.getElementById('baseUrlInput');
+  const keyStatus  = document.getElementById('keyStatus');
+  const modalCancel= document.getElementById('modalCancel');
+  const modalSave  = document.getElementById('modalSave');
+
+  async function checkKeyStatus() {
+    try {
+      const res  = await fetch('/api/key-status');
+      const data = await res.json();
+      if (data.hasKey) {
+        keyBtn.classList.add('active');
+        keyBtn.textContent = '🔑✓ Key Set';
+      }
+      if (data.endpoint && baseUrlInp) baseUrlInp.value = data.endpoint;
+    } catch(e) { console.warn('key status check failed', e); }
+  }
+
+  keyBtn.addEventListener('click', () => {
+    keyInput.value = '';
+    keyStatus.textContent = '';
+    keyStatus.className = 'modal-status';
+    keyModal.removeAttribute('hidden');
+    setTimeout(() => keyInput.focus(), 50);
+  });
+
+  function closeKeyModal() { keyModal.setAttribute('hidden', ''); }
+  modalCancel.addEventListener('click', closeKeyModal);
+  keyModal.addEventListener('click', e => { if (e.target === keyModal) closeKeyModal(); });
+
+  modalSave.addEventListener('click', async () => {
+    const key     = keyInput.value.trim();
+    const baseUrl = baseUrlInp.value.trim();
+    if (!key) {
+      keyStatus.textContent = 'API key is required.';
+      keyStatus.className = 'modal-status err';
+      return;
+    }
+    modalSave.disabled = true;
+    modalSave.textContent = 'Saving…';
+    try {
+      const res  = await fetch('/api/set-key', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ apiKey: key, baseURL: baseUrl || undefined })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        keyStatus.textContent = '✓ Key saved successfully.';
+        keyStatus.className = 'modal-status ok';
+        keyBtn.classList.add('active');
+        keyBtn.textContent = '🔑✓ Key Set';
+        setTimeout(closeKeyModal, 1200);
+      } else {
+        keyStatus.textContent = '✗ ' + (data.error || 'Save failed.');
+        keyStatus.className = 'modal-status err';
+      }
+    } catch(e) {
+      keyStatus.textContent = '✗ Could not reach server.';
+      keyStatus.className = 'modal-status err';
+    } finally {
+      modalSave.disabled = false;
+      modalSave.textContent = 'Save Key';
+    }
+  });
+
+  checkKeyStatus();
 
   // Close popup when clicking outside
   document.addEventListener('click', e => {
