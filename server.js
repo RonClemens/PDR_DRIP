@@ -8,7 +8,7 @@ const app  = express();
 const PORT = process.env.PORT || 3006;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'pdr-drip-training', 'src')));
+app.use(express.static(__dirname));
 
 // ── LLM Client ────────────────────────────────────────────────────────────────
 let client = process.env.TENNEX_API_KEY

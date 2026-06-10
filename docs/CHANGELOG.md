@@ -5,9 +5,10 @@ Format: **MAJOR.MINOR.PATCH**
 
 ---
 
-## [1.1.0] — 2026-06-08
+## [1.1.0] — 2026-06-10
 
 ### Added
+- **Version badge** in top header bar — displays current semantic version (e.g. `v1.1.0`) using Share Tech Mono, styled as a subtle outlined pill consistent with the design system
 - **AI-powered DRIP Advisor** (Module 09) — full-page conversational interface
   - Claude Sonnet (claude-sonnet-4-20250514) powered Q&A
   - System prompt grounded in DI-SESS-81757A, DAG CH 3-3.3.4, CDRL obligations, 10 U.S.C. § 2366b

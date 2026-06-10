@@ -1,7 +1,7 @@
 # PDR DRIP Training — DI-SESS-81757A
 
 **Version:** 1.1.0  
-**Last Updated:** 2026-06-08
+**Last Updated:** 2026-06-10
 
 ## Overview
 Interactive customer training webapp for the DoD Preliminary Design Review (PDR) Design Review Information Package (DRIP), per **DI-SESS-81757A** (06 Apr 2010).
@@ -18,16 +18,15 @@ Designed for Government customer representatives: Program Managers, Systems Engi
 
 ## File Structure
 ```
-pdr-drip-training/
-├── src/
-│   └── index.html        # Single-file app (HTML + CSS + JS)
+(repo root)
+├── index.html            # Single-file app (HTML + CSS + JS) — must be at root for GitHub Pages
 ├── docs/
 │   └── CHANGELOG.md      # Version history
 └── README.md
 ```
 
 ## Usage
-Open `src/index.html` in any modern browser. The AI assistant requires a network connection to reach the Anthropic API.
+Open `index.html` in any modern browser, or deploy to GitHub Pages (Settings → Pages → Branch: main → / root). The AI assistant requires a network connection to reach the Anthropic API.
 
 ## Version History
 See `docs/CHANGELOG.md`
