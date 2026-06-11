@@ -63,9 +63,9 @@
   .header-title {
     font-family: 'Syne', sans-serif;
     font-size: 17px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
   }
   .header-sub {
     font-family: 'Share Tech Mono', monospace;
@@ -200,14 +200,14 @@
     margin-bottom: 10px;
   }
   .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 30px;
-    font-weight: 800;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
     color: var(--white);
-    line-height: 1.35;
+    line-height: 1.4;
     margin-bottom: 14px;
-    letter-spacing: 0.01em;
-    word-spacing: 0.05em;
+    letter-spacing: 0.02em;
+    word-spacing: 0.08em;
     text-shadow: 0 2px 18px rgba(0,212,255,0.10);
   }
   .hero-body { color: var(--text); font-size: 14.5px; max-width: 640px; }
@@ -229,9 +229,9 @@
   .sec-title {
     font-family: 'Syne', sans-serif;
     font-size: 22px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     margin-bottom: 4px;
   }
   .sec-subtitle {
@@ -494,9 +494,9 @@
     margin-bottom: 28px;
   }
   .score-num {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 64px;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--green);
     line-height: 1;
     margin-bottom: 8px;
@@ -569,9 +569,9 @@
     text-align: center;
   }
   .stat-val {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 26px;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--white);
     margin-bottom: 4px;
   }
@@ -1487,7 +1487,7 @@
         <div class="card">
           <div class="card-title">SOW Cross-References <span class="tag warn">Verify</span></div>
           <ul class="req-list">
-            <li><div class="req-letter">◆</div>SOW Section for systems engineering tasks (typically §3.x)</div></li>
+            <li><div class="req-letter">◆</div>SOW Section for systems engineering tasks (typically §3.x)</li>
             <li><div class="req-letter">◆</div>SOW event-driven milestones tied to PDR</li>
             <li><div class="req-letter">◆</div>Government Furnished Information (GFI) obligations</li>
             <li><div class="req-letter">◆</div>Technical Review procedures and agenda requirements</li>
@@ -1513,14 +1513,14 @@
       </div>
 
       <div class="callout">
-        <strong>Customer Focus:</strong> Every role below is a <em>Government accountability</em> unless marked Contractor. Know your lane ??? and know what to demand from the other side of the table.
+        <strong>Customer Focus:</strong> Every role below is a <em>Government accountability</em> unless marked Contractor. Know your lane — and know what to demand from the other side of the table.
       </div>
 
       <div class="card">
-        <div class="card-title">Program Manager (PM) ??? Government <span class="tag success">Accountable</span></div>
+        <div class="card-title">Program Manager (PM) — Government <span class="tag success">Accountable</span></div>
         <ul class="req-list">
           <li><div class="req-letter">PM</div><div><strong style="color:var(--white)">Fund &amp; staff the PDR.</strong> Approve, resource, and schedule the system PDR as planned in the SEP. Ensure SMEs from engineering, T&amp;E, logistics, and contracting participate in every review element.</div></li>
-          <li><div class="req-letter">PM</div><div><strong style="color:var(--white)">Establish the path to CDR.</strong> Document the post-PDR plan in contract vehicles ??? SEMP, IMS, IMP ??? so the contractor has a contractually binding roadmap to detailed design.</div></li>
+          <li><div class="req-letter">PM</div><div><strong style="color:var(--white)">Establish the path to CDR.</strong> Document the post-PDR plan in contract vehicles — SEMP, IMS, IMP — so the contractor has a contractually binding roadmap to detailed design.</div></li>
           <li><div class="req-letter">PM</div><div><strong style="color:var(--white)">Control Government-held baselines.</strong> Convene CCBs when changes to the allocated baseline are warranted. Enforce ECP discipline from PDR exit onward. No informal changes.</div></li>
           <li><div class="req-letter">PM</div><div><strong style="color:var(--white)">MDAP obligation.</strong> For ACAT ID programs, invite DASD(SE) and the CAE to PDR and make all review artifacts available to them in advance of the review.</div></li>
           <li><div class="req-letter">PM</div><div><strong style="color:var(--white)">Sign the PDR completion memo.</strong> Formally document PDR entry/exit decisions, open action item status, and conditional approval conditions in a written PM determination.</div></li>
@@ -1528,7 +1528,7 @@
       </div>
 
       <div class="card">
-        <div class="card-title">Lead Systems Engineer ??? Government <span class="tag success">Technical Authority</span></div>
+        <div class="card-title">Lead Systems Engineer — Government <span class="tag success">Technical Authority</span></div>
         <ul class="req-list">
           <li><div class="req-letter">SE</div><div><strong style="color:var(--white)">Own the PDR plan.</strong> Develop and execute the system PDR plan with quantifiable entry and exit criteria documented in the SEP no later than Milestone A.</div></li>
           <li><div class="req-letter">SE</div><div><strong style="color:var(--white)">Gate the review.</strong> Verify all pre-established entry criteria are met before allowing PDR to commence. Do not waive entry criteria without PM approval and documented rationale.</div></li>
@@ -1546,11 +1546,11 @@
             <li><div class="req-letter">T</div>Participate in PDR and provide T&amp;E analysis and assessments to date</li>
             <li><div class="req-letter">T</div>Verify TEMP is updated and T&amp;E resources are aligned with the IMS critical path to CDR</li>
             <li><div class="req-letter">T</div>Review software metrics, test lab establishment status, and CI-level test approach</li>
-            <li><div class="req-letter">T</div>Flag verification gaps ??? missing test methods for allocated requirements before PDR exit</li>
+            <li><div class="req-letter">T</div>Flag verification gaps — missing test methods for allocated requirements before PDR exit</li>
           </ul>
         </div>
         <div class="card">
-          <div class="card-title">DASD(SE) ??? MDAPs Only <span class="tag warn">ACAT ID/IC</span></div>
+          <div class="card-title">DASD(SE) — MDAPs Only <span class="tag warn">ACAT ID/IC</span></div>
           <ul class="req-list" style="font-size:13px">
             <li><div class="req-letter">D</div>Conduct <strong style="color:var(--white)">independent PDR assessment</strong> and report findings to the Milestone Decision Authority</li>
             <li><div class="req-letter">D</div>Assess conduct and adequacy of PDR: stakeholder participation, open RFIs, action item volume and risk</li>
@@ -1564,13 +1564,13 @@
         <div class="card-title">Contracting Officer (KO) <span class="tag gold">Contract Authority</span></div>
         <ul class="req-list">
           <li><div class="req-letter">KO</div><div><strong style="color:var(--white)">CDRL compliance.</strong> Ensure DD Form 1423 line items for the DRIP and all PDR-associated deliverables (SRS, ICD, SDP, LCSP, TEMP) are properly cited and trigger dates enforced.</div></li>
-          <li><div class="req-letter">KO</div><div><strong style="color:var(--white)">SOW enforcement.</strong> Confirm PDR event-driven milestones in the SOW are met. Issue cure notices or show-cause letters if contractor fails to deliver DRIP package ???30 days prior to PDR.</div></li>
+          <li><div class="req-letter">KO</div><div><strong style="color:var(--white)">SOW enforcement.</strong> Confirm PDR event-driven milestones in the SOW are met. Issue cure notices or show-cause letters if contractor fails to deliver DRIP package —30 days prior to PDR.</div></li>
           <li><div class="req-letter">KO</div><div><strong style="color:var(--white)">Formal approvals.</strong> Process Government written approvals, conditional approvals, or rejections of CDRL deliverables within contractually required timelines. Silence is not approval.</div></li>
         </ul>
       </div>
 
       <div class="card">
-        <div class="card-title">Contractor Responsibilities ??? What You Should Demand <span class="tag warn">Verify</span></div>
+        <div class="card-title">Contractor Responsibilities — What You Should Demand <span class="tag warn">Verify</span></div>
         <table class="data-table">
           <thead>
             <tr>
@@ -1582,7 +1582,7 @@
           <tbody>
             <tr>
               <td>Deliver complete DRIP PDR section for Government pre-read</td>
-              <td><span class="pill pill-orange">???30 days before PDR</span></td>
+              <td><span class="pill pill-orange">—30 days before PDR</span></td>
               <td>KO tracks against CDRL due date</td>
             </tr>
             <tr>
@@ -1606,7 +1606,7 @@
               <td>PM monitors monthly; SE validates closure</td>
             </tr>
             <tr>
-              <td>Baseline all required CDRLs ??? SRS, ICD, SDP, LCSP</td>
+              <td>Baseline all required CDRLs — SRS, ICD, SDP, LCSP</td>
               <td><span class="pill pill-blue">At/by PDR exit</span></td>
               <td>KO issues formal written approval per CDRL</td>
             </tr>
@@ -1620,7 +1620,7 @@
       </div>
 
       <div class="callout gold">
-        <strong>Key Principle:</strong> The Government does not just <em>attend</em> PDR ??? it <em>chairs</em> it, <em>gates</em> it, and <em>closes</em> it. The contractor presents; the Government decides. If the allocated baseline is not complete, PDR exit is not approved ??? regardless of schedule pressure.
+        <strong>Key Principle:</strong> The Government does not just <em>attend</em> PDR — it <em>chairs</em> it, <em>gates</em> it, and <em>closes</em> it. The contractor presents; the Government decides. If the allocated baseline is not complete, PDR exit is not approved — regardless of schedule pressure.
       </div>
 
       <div class="btn-row">
