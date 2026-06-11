@@ -1036,6 +1036,16 @@
       <span class="nav-num">08</span>
     </div>
 
+    <div class="nav-section-label">MK 710 Program</div>
+    <div class="nav-item" data-section="mk710-criteria">
+      <div class="nav-dot"></div> PDR Entry &amp; Exit Criteria
+      <span class="nav-num">09</span>
+    </div>
+    <div class="nav-item" data-section="mk710-ci">
+      <div class="nav-dot"></div> CI Data Package
+      <span class="nav-num">10</span>
+    </div>
+
     <div class="nav-section-label">AI Assistant</div>
     <div class="nav-item" data-section="ai-assistant" id="nav-ai" style="border-left-color:transparent;">
       <div class="nav-dot" style="background:var(--saic-orange);box-shadow:0 0 6px var(--saic-orange);"></div> DRIP Advisor
@@ -1805,6 +1815,447 @@
       </div>
     </div>
 
+    <!-- ========== 09 MK710 CRITERIA ========== -->
+    <div class="section" id="mk710-criteria">
+      <div class="sec-header">
+        <div class="sec-icon" style="background:rgba(232,119,34,0.15)">&#127919;</div>
+        <div>
+          <div class="sec-title">MK 710 PDR Entry &amp; Exit Criteria</div>
+          <div class="sec-subtitle">PMS-404 / Code 85 &mdash; Program-Specific Gate Requirements</div>
+        </div>
+      </div>
+
+      <div class="callout" style="border-color:var(--saic-orange);background:rgba(232,119,34,0.06)">
+        <strong>Program Context:</strong> The MK 710 Torpedo Support Equipment (TSE) PDR is governed by NAVSEA Technical Review Manual (TRM) 3.0 criteria, tailored by the MK 710 Systems Engineering Plan. PMS-404 / Code 85 is the Government Technical Review authority. The overarching program challenge is to <em>move the program forward as quickly as possible</em> while identifying and evaluating risks of any gaps against the NUWC MK 710 SEP and existing TWH criteria.
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Entrance Criteria <span class="tag">Before PDR Begins</span></div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Per NAVSEA TRM 3.0 &mdash; tailored for MK 710:</p>
+          <ul class="req-list">
+            <li><div class="req-letter">A</div><div>Documentation of functional design, architectural design, HW/SW processes and tools, and test plans are <strong style="color:var(--white)">drafted and concurred with</strong> by TRB. All PDR technical data package artifacts reviewed and assessed.</div></li>
+            <li><div class="req-letter">B</div><div><strong style="color:var(--white)">Operator and maintainer task descriptions</strong> have been specified for all applicable CIs.</div></li>
+            <li><div class="req-letter">C</div><div>All <strong style="color:var(--white)">Action Items (AIs) from previous review</strong> (SSR/SRR) have been closed or have closure plans agreed to by SETR co-chairs. All RFA/RFIs resolved.</div></li>
+            <li><div class="req-letter">D</div><div><strong style="color:var(--white)">Software metrics</strong> have been collected and are ready for presentation (requirements volatility, open issues, coverage).</div></li>
+            <li><div class="req-letter">E</div><div><strong style="color:var(--white)">Plans for the next level of system development</strong> have been established and are mature.</div></li>
+            <li><div class="req-letter">F</div><div>Readiness and <strong style="color:var(--white)">O&amp;S cost</strong> have been analyzed for affordability against program budget.</div></li>
+            <li><div class="req-letter">G</div><div><strong style="color:var(--white)">Preliminary hazard analyses</strong> are complete and all potential safety hazards are documented.</div></li>
+            <li><div class="req-letter">H</div><div>TRT has assessed all available artifacts, identified critical issues, and has a plan to close any open items. <strong style="color:var(--white)">Element/combat system certification plan</strong> developed and signed.</div></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title">Exit Criteria <span class="tag success">After PDR Approval</span></div>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Per NAVSEA TRM 3.0 &mdash; PDR complete only when:</p>
+          <ul class="req-list">
+            <li><div class="req-letter">a</div><div><strong style="color:var(--white)">Analysis definition complete</strong> for HW/SW: all top-level CIs identified; interfaces, allocated functionality, and algorithms defined; error budgets established for critical parameters; FD/FI concept supports availability; environmental and ship integration impacts addressed.</div></li>
+            <li><div class="req-letter">b</div><div><strong style="color:var(--white)">Test plans concurred with:</strong> requirements mapped to test approaches; test strategies for lower-level testing fully defined and accepted.</div></li>
+            <li><div class="req-letter">c</div><div><strong style="color:var(--white)">Development processes fully defined</strong> for HW and SW; appropriate for coding and unit test.</div></li>
+            <li><div class="req-letter">d</div><div>All <strong style="color:var(--white)">tools required for next phase</strong> of HW/SW development are in place and ready for use.</div></li>
+            <li><div class="req-letter">e</div><div><strong style="color:var(--white)">Risks have executable mitigation strategies</strong> in place with owners and closure dates.</div></li>
+            <li><div class="req-letter">f</div><div>Project management methodologies in place to manage key metrics: <strong style="color:var(--white)">EVM, cost as independent variable, MOPs, KPPs, KSAs</strong> performance predictions and status.</div></li>
+            <li><div class="req-letter">g</div><div>Plans for the next phase of system development are <strong style="color:var(--white)">mature and program is fully executable.</strong></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">MK 710 Program-Specific Considerations <span class="tag warn">PMS-404 / Code 85</span></div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th>MK 710 / SAIC Context</th>
+              <th>Risk if Not Met</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--white)">SSR Action Item Closure</strong></td>
+              <td>All SSR RFA/RFIs closed per James F. e-mail agreement (1/8/26). Deviations from previously established deliverables require NUWC concurrence.</td>
+              <td><span class="pill pill-orange">PDR Entry Blocked</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">SAIC SSR-Focused Deliverables</strong></td>
+              <td>Deliverables negotiated via prior e-mail artifact agreement satisfy entry criteria. Red text deviations must be formally accepted by NUWC before PDR gate.</td>
+              <td><span class="pill pill-orange">Conditional Entry</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">44-CI Coverage</strong></td>
+              <td>All 44 MK 710 CIs (HWCIs and CSCIs) must have preliminary design presented. CI PDR data packages distributed for customer review prior to PDR.</td>
+              <td><span class="pill pill-orange">Incomplete Baseline</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">NUWC SEP Alignment</strong></td>
+              <td>Program must demonstrate alignment with NUWC MK 710 SEP and TWH criteria. Any gaps must be documented with formal risk acceptance by PMS-404.</td>
+              <td><span class="pill pill-orange">High Program Risk</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">Software Metrics</strong></td>
+              <td>Requirements volatility, open issues, SDP status, and CSCI/CSC/CSU identification must be current and presented at PDR for all 14 CSCIs.</td>
+              <td><span class="pill pill-gold">Medium Risk</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout gold">
+        <strong>NUWC Response Required:</strong> Per the PDR Entry Criteria Analysis, deviations from previously established entry criteria deliverables (shown in red in the source document) require formal NUWC response and acceptance before PDR may proceed. Coordinate through PMS-404 / Code 85 for all deviation requests.
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="goTo('quiz')">&larr; Back to Assessment</button>
+        <button class="btn btn-primary" onclick="goTo('mk710-ci')">Next: CI Data Package &rarr;</button>
+      </div>
+    </div>
+
+    <!-- ========== 10 MK710 CI ========== -->
+    <div class="section" id="mk710-ci">
+      <div class="sec-header ">
+        <div class="sec-icon " style="background:rgba(0,71,187,0.15)">&#128196;</div>
+        <div>
+          <div class="sec-title ">CI PDR Data Package</div>
+          <div class="sec-subtitle ">MK 710 Configuration Item Distribution List &mdash; Customer Review</div>
+        </div>
+      </div>
+
+      <div class="callout " style="border-color:var(--saic-blue-light);background:rgba(0,71,187,0.05)">
+        <strong>Distribution Purpose:</strong> The CI PDR Data Package is prepared by SAIC and distributed to PMS-404 / Code 85 for Government customer review prior to the MK 710 PDR gate. Each CI must have a compliant data package addressing design maturity, interface definition, and verification approach.
+      </div>
+
+      <div class="stat-grid ">
+        <div class="stat-box ">
+          <div class="stat-val " style="color:var(--saic-orange)">44</div>
+          <div class="stat-lbl ">Total CIs<br/>MK 710 Program</div>
+        </div>
+        <div class="stat-box ">
+          <div class="stat-val " style="color:var(--saic-blue-light)">35</div>
+          <div class="stat-lbl ">Hardware CIs<br/>(HWCI)</div>
+        </div>
+        <div class="stat-box ">
+          <div class="stat-val " style="color:var(--green)">16</div>
+          <div class="stat-lbl ">Software CIs<br/>(CSCI)</div>
+        </div>
+      </div>
+
+      <div class="card ">
+        <div class="card-title ">CI PDR Data Package Requirements <span class="tag ">Per DI-SESS-81757A</span></div>
+        <div class="two-col ">
+          <div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px;font-family:Share Tech Mono,monospace;text-transform:uppercase;letter-spacing:0.1em">Each HWCI Package Must Include:</p>
+            <ul class="req-list ">
+              <li><div class="req-letter ">HW</div>Hardware Development Specification (preliminary)</li>
+              <li><div class="req-letter ">HW</div>Interface Control Documents (ICDs) for all external interfaces</li>
+              <li><div class="req-letter ">HW</div>Preliminary design drawings / block diagrams</li>
+              <li><div class="req-letter ">HW</div>R&amp;M analysis / FMECA status</li>
+              <li><div class="req-letter ">HW</div>Verification requirements mapped to test approach (T/I/A/D)</li>
+              <li><div class="req-letter ">HW</div>Risk assessment for this CI</li>
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px;font-family:Share Tech Mono,monospace;text-transform:uppercase;letter-spacing:0.1em">Each CSCI Package Must Include:</p>
+            <ul class="req-list ">
+              <li><div class="req-letter ">SW</div>Software Requirements Specification (SRS) &mdash; baselined</li>
+              <li><div class="req-letter ">SW</div>Interface Requirements Specification (IRS) for all SW interfaces</li>
+              <li><div class="req-letter ">SW</div>Software Architecture description (CSCI/CSC/CSU decomposition)</li>
+              <li><div class="req-letter ">SW</div>Software Development Plan (SDP) reference</li>
+              <li><div class="req-letter ">SW</div>Software metrics (size, effort, schedule, requirements volatility)</li>
+              <li><div class="req-letter ">SW</div>COTS/reuse identification and trade study results</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card ">
+        <div class="card-title ">MK 710 Configuration Item Register <span class="tag ">44 CIs &mdash; Source: CI_List.xlsx</span></div>
+        <table class="data-table ">
+          <thead>
+            <tr>
+              <th>Acronym</th>
+              <th>Configuration Item Name</th>
+              <th>CI Type</th>
+              <th>PDR Package Contents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--white)">ACA</strong></td>
+              <td>ABG Control Assembly</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">AFCA</strong></td>
+              <td>Aft Fluid Control Assembly</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">AHPC</strong></td>
+              <td>Aft High Power Controller</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">ALTS</strong></td>
+              <td>Acoustic Load Test Stand</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">AMF</strong></td>
+              <td>Adapter Module Function</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">ASG</strong></td>
+              <td>Analog Signal Generator</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">ASM</strong></td>
+              <td>Analog Source Measurement</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">ABG</strong></td>
+              <td>Afterbody Group</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">CCU</strong></td>
+              <td>Calibration Console Unit</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">COTS</strong></td>
+              <td>Commercial Off The Shelf Software</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">CTF</strong></td>
+              <td>Calibration Test Function</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">DATA</strong></td>
+              <td>Data Software</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">DCT</strong></td>
+              <td>Digital Communication Translator</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">DMC</strong></td>
+              <td>Digital Motion Control</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">DPS</strong></td>
+              <td>Depth Pressure System</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">ETF</strong></td>
+              <td>EPS Test Fixture</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">FFCA</strong></td>
+              <td>Forward Fluid Control Assembly</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">FHPC</strong></td>
+              <td>Forward High Power Controller</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">GWT</strong></td>
+              <td>Guidance Wire Transceiver</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">HMS</strong></td>
+              <td>Hydraulic Management System</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">HPL</strong></td>
+              <td>High Power Load</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">HPDS</strong></td>
+              <td>High Power DC Supply</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">IPS</strong></td>
+              <td>Internet Protocol Switch</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">ITC</strong></td>
+              <td>IMU Table and Control</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">LPM</strong></td>
+              <td>Low Power Measurement</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">LPAS</strong></td>
+              <td>Low Power Programmable AC Source</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">MCC</strong></td>
+              <td>MK 710 Central Controller</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">MF</strong></td>
+              <td>Mainframe</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">MHC</strong></td>
+              <td>MK 710 HMI Console</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">OMI</strong></td>
+              <td>Operator Machine Interface</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">PDCS</strong></td>
+              <td>Programmable DC Current Source</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">PDSA</strong></td>
+              <td>Programmable DC Supply Assembly</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">RFE</strong></td>
+              <td>Rail Fluid Electronics</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">RSI</strong></td>
+              <td>Rail Switching Interlocks</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">RSE</strong></td>
+              <td>Rail Support Equipment</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">SDS</strong></td>
+              <td>Software Development Stations</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">SPD</strong></td>
+              <td>System Power Distribution</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">STF</strong></td>
+              <td>Self-Test Function</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">TT</strong></td>
+              <td>Test Transducer</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">UTF</strong></td>
+              <td>UUT Test Function</td>
+              <td> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">SRS, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">UUTCab</strong></td>
+              <td>UUT Cables</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">WDE</strong></td>
+              <td>Warhead Dolly Electronics</td>
+              <td><span class="pill pill-blue ">HWCI</span> <span class="pill pill-green ">CSCI</span></td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, SRS, ICD, IRS</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">WMS</strong></td>
+              <td>Water Management System</td>
+              <td><span class="pill pill-blue ">HWCI</span> </td>
+              <td><span style="font-size:11px;color:var(--muted)">HW Spec, ICD</span></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--white)">System</strong></td>
+              <td>System</td>
+              <td> </td>
+              <td><span style="font-size:11px;color:var(--muted)">ICD</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout gold ">
+        <strong>Customer Review Responsibility:</strong> PMS-404 / Code 85 must review each CI data package for completeness, accuracy, and sufficiency prior to PDR gate. CIs with both HWCI and CSCI designations (8 total) require coordinated hardware/software interface review. Deficiencies must be documented as RFIs and returned to SAIC with sufficient lead time before the PDR date.
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost " onclick="goTo('mk710-criteria')">&larr; Back</button>
+        <button class="btn btn-primary " onclick="goTo('ai-assistant')">DRIP Advisor &rarr;</button>
+      </div>
+    </div>
+
     <!-- ========== 09 AI ASSISTANT ========== -->
     <div class="section" id="ai-assistant">
       <div class="sec-header">
@@ -1915,7 +2366,7 @@
 
 <script>
   // ---- Navigation ----
-  const sections = ['intro','pdr-content','baselines','criteria','cdrl','roles','checklist','quiz','ai-assistant'];
+  const sections = ['intro','pdr-content','baselines','criteria','cdrl','roles','checklist','quiz','mk710-criteria','mk710-ci','ai-assistant'];
   const visited = new Set(['intro']);
   let quizAnswers = {};
   let quizScore = 0;
