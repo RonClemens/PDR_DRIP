@@ -12,7 +12,7 @@
     --navy2: #111827;
     --panel: #141d2f;
     --border: #1f3054;
-    --accent: #00d4ff;
+    --accent: #E87722;
     --accent2: #ff6b35;
     --gold: #ffd166;
     --green: #06d6a0;
@@ -50,8 +50,8 @@
     padding: 14px 32px;
   }
   .logo-badge {
-    background: var(--accent);
-    color: #000;
+    background: var(--saic-orange);
+    color: #fff;
     font-family: 'Share Tech Mono', monospace;
     font-size: 10px;
     font-weight: 700;
@@ -84,15 +84,15 @@
     color: var(--muted);
   }
   .progress-bar {
-    width: 120px;
-    height: 4px;
-    background: var(--border);
+    width: 140px;
+    height: 5px;
+    background: rgba(255,255,255,0.12);
     border-radius: 2px;
     overflow: hidden;
   }
   .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--green));
+    background: linear-gradient(90deg, var(--saic-orange), var(--saic-blue-light));
     border-radius: 2px;
     transition: width 0.5s ease;
     width: 0%;
@@ -138,8 +138,8 @@
     color: var(--muted);
     user-select: none;
   }
-  .nav-item:hover { background: rgba(0,212,255,0.06); color: var(--text); }
-  .nav-item.active { border-left-color: var(--accent); background: rgba(0,212,255,0.08); color: var(--accent); }
+  .nav-item:hover { background: rgba(232,119,34,0.08); color: var(--white); }
+  .nav-item.active { border-left-color: var(--saic-orange); background: rgba(232,119,34,0.10); color: var(--saic-orange); }
   .nav-item.done { color: var(--green); }
   .nav-item.done .nav-dot { background: var(--green); }
   .nav-dot {
@@ -174,7 +174,7 @@
 
   /* HERO CARD */
   .hero-card {
-    background: linear-gradient(135deg, #0d1f3c 0%, #0a192f 100%);
+    background: linear-gradient(135deg, #0a1628 0%, #070f1e 100%);
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
     border-radius: 6px;
@@ -188,7 +188,7 @@
     position: absolute;
     top: -40px; right: -40px;
     width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(232,119,34,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-eyebrow {
@@ -208,7 +208,7 @@
     margin-bottom: 14px;
     letter-spacing: 0.02em;
     word-spacing: 0.08em;
-    text-shadow: 0 2px 18px rgba(0,212,255,0.10);
+    text-shadow: 0 2px 18px rgba(232,119,34,0.10);
   }
   .hero-body { color: var(--text); font-size: 14.5px; max-width: 640px; }
 
@@ -263,14 +263,14 @@
   .card-title .tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 9px;
-    background: rgba(0,212,255,0.15);
+    background: rgba(232,119,34,0.12);
     color: var(--accent);
     padding: 2px 7px;
     border-radius: 2px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
-  .card-title .tag.warn { background: rgba(255,107,53,0.15); color: var(--accent2); }
+  .card-title .tag.warn { background: rgba(232,119,34,0.18); color: var(--saic-orange); }
   .card-title .tag.success { background: rgba(6,214,160,0.12); color: var(--green); }
   .card-title .tag.gold { background: rgba(255,209,102,0.12); color: var(--gold); }
 
@@ -290,7 +290,7 @@
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px;
     color: var(--accent);
-    background: rgba(0,212,255,0.1);
+    background: rgba(232,119,34,0.10);
     width: 22px; height: 22px;
     border-radius: 3px;
     display: flex; align-items: center; justify-content: center;
@@ -305,13 +305,13 @@
   /* CALLOUT */
   .callout {
     border-left: 3px solid var(--accent);
-    background: rgba(0,212,255,0.05);
+    background: rgba(232,119,34,0.05);
     padding: 16px 20px;
     border-radius: 0 4px 4px 0;
     margin-bottom: 20px;
     font-size: 14px;
   }
-  .callout.warn { border-color: var(--accent2); background: rgba(255,107,53,0.05); }
+  .callout.warn { border-color: var(--saic-orange); background: rgba(232,119,34,0.05); }
   .callout.gold { border-color: var(--gold); background: rgba(255,209,102,0.05); }
   .callout.green { border-color: var(--green); background: rgba(6,214,160,0.05); }
   .callout strong { color: var(--white); }
@@ -339,7 +339,7 @@
     color: var(--text);
     vertical-align: top;
   }
-  .data-table tr:hover td { background: rgba(0,212,255,0.03); }
+  .data-table tr:hover td { background: rgba(232,119,34,0.03); }
   .pill {
     display: inline-block;
     font-family: 'Share Tech Mono', monospace;
@@ -349,8 +349,8 @@
     border-radius: 10px;
     white-space: nowrap;
   }
-  .pill-blue { background: rgba(0,212,255,0.15); color: var(--accent); }
-  .pill-orange { background: rgba(255,107,53,0.15); color: var(--accent2); }
+  .pill-blue { background: rgba(0,71,187,0.15); color: var(--saic-blue-light); }
+  .pill-orange { background: rgba(232,119,34,0.18); color: var(--saic-orange); }
   .pill-green { background: rgba(6,214,160,0.12); color: var(--green); }
   .pill-gold { background: rgba(255,209,102,0.12); color: var(--gold); }
 
@@ -383,7 +383,7 @@
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    background: rgba(0,212,255,0.04);
+    background: rgba(232,119,34,0.04);
     border: 1px solid var(--border);
     border-radius: 4px;
     cursor: pointer;
@@ -392,7 +392,7 @@
     color: var(--text);
     user-select: none;
   }
-  .quiz-opt:hover:not(.disabled) { border-color: var(--accent); background: rgba(0,212,255,0.08); }
+  .quiz-opt:hover:not(.disabled) { border-color: var(--saic-orange); background: rgba(232,119,34,0.08); }
   .quiz-opt.selected-correct { border-color: var(--green); background: rgba(6,214,160,0.1); color: var(--green); }
   .quiz-opt.selected-wrong { border-color: var(--accent2); background: rgba(255,107,53,0.1); color: var(--accent2); }
   .quiz-opt.reveal-correct { border-color: var(--green); }
@@ -474,20 +474,20 @@
     background: var(--accent);
     color: #000;
   }
-  .btn-primary:hover { background: #00bfe8; }
+  .btn-primary:hover { background: var(--saic-orange-hover); }
   .btn-ghost {
     background: transparent;
     color: var(--accent);
     border: 1px solid var(--accent);
   }
-  .btn-ghost:hover { background: rgba(0,212,255,0.1); }
+  .btn-ghost:hover { background: rgba(0,71,187,0.10); }
   .btn-row { display: flex; gap: 12px; margin-top: 24px; align-items: center; flex-wrap: wrap; }
 
   /* SCORE DISPLAY */
   .score-display {
-    background: linear-gradient(135deg, #061222, #0d1f3c);
+    background: linear-gradient(135deg, #060d1a, #0a1628);
     border: 1px solid var(--border);
-    border-top: 3px solid var(--green);
+    border-top: 3px solid var(--saic-orange);
     border-radius: 6px;
     padding: 32px;
     text-align: center;
@@ -613,13 +613,13 @@
     gap: 12px;
     padding: 16px 20px;
     border-bottom: 1px solid var(--border);
-    background: rgba(0,212,255,0.04);
+    background: rgba(232,119,34,0.04);
     flex-shrink: 0;
   }
   .ai-avatar {
     width: 36px; height: 36px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #00d4ff, #0056a8);
+    background: var(--saic-orange);
     display: flex; align-items: center; justify-content: center;
     font-size: 16px;
     flex-shrink: 0;
@@ -651,8 +651,8 @@
     margin-left: auto;
     font-family: 'Share Tech Mono', monospace;
     font-size: 9px;
-    background: rgba(0,212,255,0.12);
-    color: var(--accent);
+    background: rgba(232,119,34,0.12);
+    color: var(--saic-orange);
     padding: 3px 8px;
     border-radius: 10px;
     letter-spacing: 0.08em;
@@ -684,7 +684,7 @@
     font-size: 13px;
     margin-top: 2px;
   }
-  .msg.ai .msg-avatar { background: linear-gradient(135deg, #00d4ff22, #003d6622); border: 1px solid var(--border); }
+  .msg.ai .msg-avatar { background: linear-gradient(135deg, rgba(232,119,34,0.15), rgba(0,48,135,0.15)); border: 1px solid var(--border); }
   .msg.user .msg-avatar { background: rgba(255,209,102,0.15); border: 1px solid rgba(255,209,102,0.3); }
 
   .msg-bubble {
@@ -695,8 +695,8 @@
     line-height: 1.6;
   }
   .msg.ai .msg-bubble {
-    background: rgba(0,212,255,0.06);
-    border: 1px solid rgba(0,212,255,0.15);
+    background: rgba(232,119,34,0.05);
+    border: 1px solid rgba(232,119,34,0.18);
     color: var(--text);
     border-top-left-radius: 2px;
   }
@@ -723,7 +723,7 @@
     display: inline-block;
     font-family: 'Share Tech Mono', monospace;
     font-size: 9px;
-    background: rgba(0,212,255,0.12);
+    background: rgba(232,119,34,0.12);
     color: var(--accent);
     padding: 1px 6px;
     border-radius: 2px;
@@ -763,7 +763,7 @@
   }
   .ai-textarea {
     flex: 1;
-    background: rgba(0,212,255,0.04);
+    background: rgba(232,119,34,0.04);
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--white);
@@ -777,7 +777,7 @@
     max-height: 120px;
     transition: border-color 0.2s;
   }
-  .ai-textarea:focus { border-color: var(--accent); }
+  .ai-textarea:focus { border-color: var(--saic-orange); }
   .ai-textarea::placeholder { color: var(--muted); }
   .ai-send-btn {
     width: 42px; height: 42px;
@@ -791,7 +791,7 @@
     flex-shrink: 0;
     transition: background 0.2s, transform 0.1s;
   }
-  .ai-send-btn:hover:not(:disabled) { background: #00bfe8; transform: scale(1.05); }
+  .ai-send-btn:hover:not(:disabled) { background: var(--saic-orange-hover); transform: scale(1.05); }
   .ai-send-btn:disabled { background: var(--border); color: var(--muted); cursor: default; }
 
   .ai-suggestions {
@@ -805,33 +805,33 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     padding: 6px 12px;
-    background: rgba(0,212,255,0.06);
-    border: 1px solid rgba(0,212,255,0.2);
+    background: rgba(232,119,34,0.05);
+    border: 1px solid rgba(232,119,34,0.25);
     border-radius: 14px;
     color: var(--text);
     cursor: pointer;
     transition: all 0.2s;
     user-select: none;
   }
-  .suggestion-chip:hover { background: rgba(0,212,255,0.14); border-color: var(--accent); color: var(--white); }
+  .suggestion-chip:hover { background: rgba(232,119,34,0.14); border-color: var(--saic-orange); color: var(--white); }
 
   /* Floating AI button (visible from other sections) */
   #ai-fab {
     position: fixed;
     bottom: 28px;
     right: 28px;
-    width: 52px; height: 52px;
+    width: 58px; height: 58px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #00d4ff, #0077cc);
+    background: var(--saic-orange);
     border: none;
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 4px 20px rgba(0,212,255,0.4);
+    font-size: 24px;
+    box-shadow: 0 4px 24px rgba(232,119,34,0.55);
     z-index: 200;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  #ai-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(0,212,255,0.6); }
+  #ai-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(232,119,34,0.6); }
   #ai-fab .fab-badge {
     position: absolute;
     top: -2px; right: -2px;
@@ -907,7 +907,7 @@
     transition: all 0.2s;
     letter-spacing: 0.08em;
   }
-  .key-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .key-btn:hover { border-color: var(--saic-orange); color: var(--saic-orange); }
   .key-btn.active { border-color: var(--green); color: var(--green); }
   .modal-overlay {
     position: fixed; inset: 0;
@@ -949,7 +949,7 @@
   }
   .modal-input {
     width: 100%;
-    background: rgba(0,212,255,0.04);
+    background: rgba(232,119,34,0.04);
     border: 1px solid var(--border);
     border-radius: 4px;
     color: var(--white);
@@ -960,7 +960,7 @@
     margin-bottom: 12px;
     transition: border-color 0.2s;
   }
-  .modal-input:focus { border-color: var(--accent); }
+  .modal-input:focus { border-color: var(--saic-orange); }
   .modal-status {
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px;
@@ -982,13 +982,13 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo-badge">DI-SESS-81757A</div>
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-family:DM Sans,sans-serif;font-size:14px;font-weight:700;color:var(--saic-orange);letter-spacing:0.12em;border-right:1px solid var(--border);padding-right:12px;">SAIC</div><div class="logo-badge">DI-SESS-81757A</div></div>
     <div>
       <div class="header-title">PDR Design Review Information Package</div>
       <div class="header-sub">Customer Training Module · DRIP Preliminary Design Review</div>
     </div>
     <div class="header-progress">
-      <span id="progress-pct">0%</span>
+      <span style="font-size:10px;color:var(--saic-orange);font-family:DM Sans,sans-serif;" id="progress-pct">0%</span>
       <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     </div>
   </div>
@@ -1038,8 +1038,8 @@
 
     <div class="nav-section-label">AI Assistant</div>
     <div class="nav-item" data-section="ai-assistant" id="nav-ai" style="border-left-color:transparent;">
-      <div class="nav-dot" style="background:var(--accent);box-shadow:0 0 6px var(--accent);"></div> DRIP Advisor
-      <span class="nav-num" style="color:var(--accent);font-size:9px;">AI</span>
+      <div class="nav-dot" style="background:var(--saic-orange);box-shadow:0 0 6px var(--saic-orange);"></div> DRIP Advisor
+      <span class="nav-num" style="color:var(--saic-orange);font-size:9px;">AI</span>
     </div>
   </aside>
 
@@ -1061,7 +1061,7 @@
           <div class="stat-lbl">Review Sections<br/>in the DRIP</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val" style="color:var(--gold)">CDRL</div>
+          <div class="stat-val" style="color:var(--saic-orange)">CDRL</div>
           <div class="stat-lbl">DD Form 1423<br/>Data Item</div>
         </div>
         <div class="stat-box">
@@ -1110,7 +1110,7 @@
     <!-- ========== 02 PDR CONTENT ========== -->
     <div class="section" id="pdr-content">
       <div class="sec-header">
-        <div class="sec-icon" style="background:rgba(0,212,255,0.12)">📋</div>
+        <div class="sec-icon" style="background:rgba(232,119,34,0.10)">📋</div>
         <div>
           <div class="sec-title">PDR Section Content Requirements</div>
           <div class="sec-subtitle">DI-SESS-81757A · PDR DRIP Content Specification</div>
@@ -1505,7 +1505,7 @@
     <!-- ========== 06 ROLES ========== -->
     <div class="section" id="roles">
       <div class="sec-header">
-        <div class="sec-icon" style="background:rgba(0,212,255,0.12)">&#128101;</div>
+        <div class="sec-icon" style="background:rgba(232,119,34,0.10)">&#128101;</div>
         <div>
           <div class="sec-title">Roles &amp; Responsibilities</div>
           <div class="sec-subtitle">Government and Contractor Accountability at PDR</div>
@@ -1808,7 +1808,7 @@
     <!-- ========== 09 AI ASSISTANT ========== -->
     <div class="section" id="ai-assistant">
       <div class="sec-header">
-        <div class="sec-icon" style="background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,86,168,0.2))">🤖</div>
+        <div class="sec-icon" style="background:linear-gradient(135deg,rgba(232,119,34,0.2),rgba(0,48,135,0.2))">🤖</div>
         <div>
           <div class="sec-title">DRIP Advisor — AI Assistant</div>
           <div class="sec-subtitle">Ask anything about DI-SESS-81757A · PDR · CDRL · DoD Acquisition</div>
