@@ -74,9 +74,28 @@ g. Plans for the next phase of system development are mature and program is full
 Total: 44 CIs — 35 HWCIs (Hardware Configuration Items), 16 CSCIs (Computer Software Configuration Items).
 Source: CI_List.xlsx / MK 710 program documentation.
 
-Each HWCI PDR package must include: Hardware Development Specification (preliminary); Interface Control Documents (ICDs) for all external interfaces; preliminary design drawings/block diagrams; R&M analysis / FMECA status; verification requirements mapped to test approach (T/I/A/D); risk assessment.
+PDR Incremental DRIP CDRLs per CI type (MK 710 SOW / contract A-numbers):
 
-Each CSCI PDR package must include: Software Requirements Specification (SRS) — baselined; Interface Requirements Specification (IRS) for all SW interfaces; Software Architecture description (CSCI/CSC/CSU decomposition); Software Development Plan (SDP) reference; software metrics (size, effort, schedule, requirements volatility); COTS/reuse identification and trade study results.
+For each CSCI (16 total):
+- IDD — FINAL (CDRL A023)
+- SRS — FINAL (CDRL A025)
+- SDD — DRAFT (CDRL A024)
+- SPS — DRAFT (CDRL A027)
+- SW DOORS RTM — DRAFT (CDRL A053) *System Level only
+
+For each HWCI (35 total):
+- TDP — 1st DRAFT (CDRL A005)
+- HRS — FINAL (CDRL A012)
+- LORA — DRAFT (CDRL A013) *System Level only
+- COSAL — DRAFT (CDRL A014) *System Level only
+- FMECA — DRAFT (CDRL A021)
+- CMRS — DRAFT (CDRL A041) *System Level only
+- Reliability Prediction — DRAFT (CDRL A054)
+- Maintainability Prediction Report — DRAFT (CDRL A055)
+- IOL — DRAFT (CDRL A079)
+- DAL Artifacts — DRAFT (CDRL A103): includes Trade Study, Theory of Operations (THOOP), Design Control Matrix (DCM)
+
+System-Level CDRLs (A013, A014, A041, A053) are delivered once for the full system, not per CI. All other CDRLs are required per applicable CI.
 
 == GENERAL PDR / DRIP KNOWLEDGE BASE ==
 - PDR DRIP Section Requirements (DI-SESS-81757A): system performance specification status; preliminary HW & SW design; interface requirements & ICDs; software architecture & CSCI/CSC/CSU identification; trade study results; risk assessment & mitigation; R&M analysis & FMECA; manufacturing & producibility assessment; logistics & sustainment (LCSP); schedule & IMS; CARD update.
